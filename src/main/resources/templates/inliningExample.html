@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Thymeleaf</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" type="text/css">
+    <script th:src="@{/js/libs/jquery.min.js}"></script>
+
+    <!-- th:inline="css" -->
+    <style th:inline = "css">
+        .[[${classname}]] {
+            text-align: [[${align}]];
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <div class="container">
+        <h3 style="color: green" class="text-center display-4 font-weight-bold pt-5 ">Thymeleaf course</h3>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <span style="color: green; margin-right: 1.5em">Hello, [[${defaultName}]]!</span>
+            <span style="margin-right: 1.5em" th:text="'insteaf of'"></span>
+            <span style="color: blue;">Hello, <span th:text="${defaultName}"></span>!</span>.
+        </div>
+
+        <!-- Escape and unescape -->
+        <br>
+        <div class="row">
+            <span style="color: green; margin-right: 1.5em">[[${inlineMessage}]]!</span>
+            <span style="color: green; margin-right: 1.5em">[(${inlineMessage})]!</span>
+        </div>
+
+        <!-- To disable th:inlining -->
+        <p th:inline="none"></p>
+
+        <br>
+        <!-- th:inline="javascript "-->
+        <div class="container">
+            <label for="thinJavascript"> th:inline="javascript" :</label>
+            <span id="thinJavascript">Should be replaced</span>
+        </div>
+    </div>
+</div>
+
+<!-- th: inlining -->
+<script th:inline="javascript">
+$(document).ready(function () {
+    var username = [[${appleJuiceName}]];
+    // var username = [(${appleJuiceName})];
+    $('#thinJavascript').replaceWith('<span id="thinJavascript" style="color: #1c7430">' + username + '</span>')
+})
+</script>
+</body>
+</html>

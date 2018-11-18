@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thymeleaf cource</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" type="text/css">
+    <link th:href="@{/css/fontawesome/fontawesome-all.min.css}" rel="stylesheet">
+    <link th:href="@{/css/main.css}" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div class="container">
+    <div class="container">
+        <h3 class="text-center display-4 font-weight-bold pt-5 text-success">Companies</h3>
+    </div>
+    <div class="row position-relative">
+        <th:block th:text="${#fields}"></th:block>
+            <th:block th:each="company : ${companies}">
+                <div class="col-lg-6">
+                    <div class="company-box">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <h3 class="mx-5" th:text="${company?.name}"></h3>
+
+                            <i class="fas fa-ellipsis-h" id="dropdownMenuButton" data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false"></i>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a th:href="@{/company/{companyId}/employees/create(companyId = ${company?.Id})}" class="dropdown-item">Add
+                                    employee</a>
+                            </div>
+                        </div>
+
+                        <div class="mt-3">
+                            <th:block th:if="${#lists.isEmpty(company?.employees)}">
+                                <p>Company has not employees!</p>
+                            </th:block>
+
+                            <th:block th:unless="${#lists.isEmpty(company?.employees)}">
+                                <table class="table table-hover w-100 offset-sm-1 center">
+                                    <thead>
+                                    <tr>
+                                        <th class="box-label">First Name</th>
+                                        <th class="box-label">Last Name</th>
+                                        <th class="box-label">Email</th>
+                                        <th class="box-label">Gender</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <th:block th:each="employee : ${company?.employees}">
+                                        <tr>
+                                            <td th:text="${employee?.getFirstName()}"></td>
+                                            <td th:text="${employee?.getLastName()}"></td>
+                                            <td th:text="${employee?.getEmail()}"></td>
+                                            <td th:text="${employee?.getGender()}"></td>
+                                        </tr>
+                                    </th:block>
+                                    </tbody>
+                                </table>
+                            </th:block>
+                        </div>
+                    </div>
+                </div>
+            </th:block>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>

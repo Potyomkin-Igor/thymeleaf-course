@@ -1,0 +1,22 @@
+spring:
+ jpa:
+   database-platform: org.hibernate.dialect.H2Dialect
+   show-sql: true
+   hibernate:
+     ddl-auto: create-drop
+
+ thymeleaf:
+   enabled: true
+   encoding: UTF-8
+   cache: false
+   check-template: true
+   check-template-location: true
+   mode: HTML
+   template-resolver-order: 0
+
+ h2:
+   console:
+     enabled: true
+
+server:
+  port: 8081

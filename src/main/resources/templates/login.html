@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="title" content="Login">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/main.css}" rel="stylesheet" type="text/css">
+    <title>Thymeleaf</title>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 block-m-top-15 d-block mx-auto">
+                    <div class="row">
+                        <form class="col mx-auto" th:action="@{/login}" th:method="post">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input class="form-control form-control-lg" name="username" type="text" id="email"
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input class="form-control form-control-lg" name="password" type="password"
+                                       id="password" required>
+                            </div>
+                            <button class="btn btn-success" type="submit" id="sign-btn">sign in</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+

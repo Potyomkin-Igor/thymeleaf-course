@@ -1,0 +1,9 @@
+<th:block xmlns:th="http://www.thymeleaf.org" th:fragment="fragParamAsMap(mapParam)">
+    <th:block th:text="'Key prompt: ' + ${mapParam.get('prompt')}"/>
+    <br>
+    <th:block th:text="'Key selected: ' + ${mapParam.get('selected')}"/>
+    <br>
+    <th:block th:text="'Key autosubmit: ' + ${mapParam.get('autosubmit')}"/>
+    <br>
+    <th:block th:text="'Key multiple: ' + ${mapParam.get('multiple')}"/>
+</th:block>

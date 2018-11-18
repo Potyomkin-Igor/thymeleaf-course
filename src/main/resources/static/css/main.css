@@ -1,0 +1,46 @@
+.company-box {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px 0 rgba(159, 177, 188, 0.4);
+    margin: 1.5rem 0;
+    padding: 2.5rem;
+    height: 289px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.box-label {
+    color: black;
+    font-weight: bold;
+    font-size: .75rem;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    flex: 0 0 40%;
+}
+
+body {
+    background: #f3fbff 50%;
+}
+
+.sign-up--form {
+    margin: 7.5rem 31%;
+}
+
+.invalid-input {
+    color: #cb4846;
+    font-size: .75rem;
+}
+
+.pad {
+    padding-right: 40px;
+    padding-left: 40px;
+}
+
+table.center {
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.block-m-top-15 {
+    margin-top: 15rem !important;
+}

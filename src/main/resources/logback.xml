@@ -1,0 +1,15 @@
+<configuration>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %yellow(%-5level) %magenta(%logger{5}) : %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="com.nbamanager" level="DEBUG"/>
+    <logger name="org.springframework.security" level="DEBUG"/>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>
