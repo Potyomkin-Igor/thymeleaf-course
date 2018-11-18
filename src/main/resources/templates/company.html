@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="en"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:tcourse="http://www.thymeleaf.org/extras/tcourse">
 <head>
     <meta charset="UTF-8">
     <title>Thymeleaf cource</title>
     <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" type="text/css">
     <link th:href="@{/css/fontawesome/fontawesome-all.min.css}" rel="stylesheet">
     <link th:href="@{/css/main.css}" rel="stylesheet" type="text/css">
+
 </head>
 
 <body>
 <div class="container">
+    <tcourse:current/>
+
     <div class="container">
         <h3 class="text-center display-4 font-weight-bold pt-5 text-success">Companies</h3>
     </div>
     <div class="row position-relative">
-        <th:block th:text="${#fields}"></th:block>
             <th:block th:each="company : ${companies}">
                 <div class="col-lg-6">
                     <div class="company-box">
@@ -57,6 +60,7 @@
                                     </tbody>
                                 </table>
                             </th:block>
+                            <th:block tcourse:statistics="${company?.name}"/>
                         </div>
                     </div>
                 </div>

@@ -1,5 +1,6 @@
 package com.thymeleaf.course.config;
 
+import com.thymeleaf.course.config.dialect.ThymeleafCourseDialect;
 import lombok.AllArgsConstructor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -10,7 +11,7 @@ import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
 
-@Configuration
+//@Configuration
 @AllArgsConstructor
 public class ThymeleafConfig {
     
