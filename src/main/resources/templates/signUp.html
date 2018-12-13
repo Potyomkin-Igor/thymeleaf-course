@@ -34,7 +34,7 @@
 
                 <div class="col-sm-4 sign-up--form order-first order-lg-last">
                     <div class="row">
-                        <form name="myForm" class="col mx-auto" accept-charset="UTF-8" th:action="@{/users/signup}" method="post"
+                        <form name="myForm" class="col mx-auto" accept-charset="UTF-8" th:action="${#requestdatavalues.url('/users/signup')}" method="post"
                               th:object="${userSignUpRequest}">
 
                             <!-- All errors -->
@@ -43,13 +43,24 @@
                             <!--</ul>-->
                             <!--<p th:if="${#fields.hasErrors('all')}" th:errors="*{all}">nput is incorrect</p>-->
 
+                            <!--Example from seventh lesson -->
                             <div class="form-group">
-                                <label for="first-name">First Name</label>
-                                <input id="first-name" class="form-control form-control-lg" type="text" th:field="*{firstName}" required>
-                                <th:block th:if="${#fields.hasErrors('firstName')}">
-                                    <div th:errorclass="invalid-input" th:errors="*{firstName}"></div>
-                                </th:block>
+                            <label for="first-name">First Name</label>
+                            <input id="first-name" class="form-control form-control-lg" type="text" name="firstName"
+                            th:value="${#requestdatavalues.formFieldValue('firstName', 'Jon', 'text')}" required>
+                            <th:block th:if="${#fields.hasErrors('firstName')}">
+                            <div th:errorclass="invalid-input" th:errors="*{firstName}"></div>
+                            </th:block>
                             </div>
+                            <!---------------->
+
+                            <!--<div class="form-group">-->
+                                <!--<label for="first-name">First Name</label>-->
+                                <!--<input id="first-name" class="form-control form-control-lg" type="text" th:field="*{firstName}" required>-->
+                                <!--<th:block th:if="${#fields.hasErrors('firstName')}">-->
+                                    <!--<div th:errorclass="invalid-input" th:errors="*{firstName}"></div>-->
+                                <!--</th:block>-->
+                            <!--</div>-->
                             <div class="form-group">
                                 <label for="last-name">Last Name</label>
                                 <input id="last-name" class="form-control form-control-lg" type="text" th:field="*{lastName}" required>

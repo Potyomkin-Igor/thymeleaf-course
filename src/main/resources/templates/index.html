@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Thymeleaf</title>
+    <title>Thysmeleaf</title>
     <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" type="text/css">
     <link th:href="@{/css/main.css}" rel="stylesheet" type="text/css">
 
@@ -13,7 +14,9 @@
 
 <body>
 <div class="container">
-    <th:block th:text="${#email.isValid('test@gmail.com')}"></th:block>
+    <!-- Sixth lesson (utility objects)-->
+     <!--<th:block th:text="${#email.isValid('test@gmail.com')}"></th:block>-->
+    <!----------------------------------->
 
     <div class="container">
         <h3 class="text-center display-4 font-weight-bold pt-5 text-success">Thymeleaf course</h3>
@@ -36,6 +39,38 @@
     <!--<div th:insert="~{fragments/fragParamAsMap :: fragParamAsMap(-->
          <!--${({selected: stringParam, prompt: 'Status', autosubmit: true, multiple: false})})}">-->
     <!--</div>-->
+
+    <br>
+    <!-- Thymeleaf Security, seventh lesson -->
+
+    <span class="font-weight-bold">Thymeleaf Security</span>
+
+    <br>
+    <th:block th:text="${#authentication.authenticated}">
+        <span>The value of the "name" property of the authentication object should appear here instead.</span>
+    </th:block>
+
+    <br>
+    <th:block th:text="${#authorization.expression('hasRole(''ROLE_USER'')')}">
+        Has role user!
+    </th:block>
+
+    <br>
+    <div sec:authentication="authorities">
+        The value of the "name" property of the authentication object should appear here.
+    </div>
+
+    <br>
+    <div sec:authorize="hasRole('ROLE_USER')">
+        This will only be displayed if authenticated user has role ROLE_USER.
+    </div>
+
+    <br>
+    <div sec:authorize-url="/api/companies">
+        This will only be displayed if authenticated user can call the "/api/companies" URL.
+    </div>
+
+    <!---------------->
 
 </div>
 </body>

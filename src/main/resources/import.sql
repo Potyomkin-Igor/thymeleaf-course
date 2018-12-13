@@ -6,4 +6,4 @@ INSERT INTO employees(id, first_name, last_name, email, gender, company_id) VALU
 
 INSERT INTO employees_skills(employee_id, skill_id) VALUES (1, 1), (1, 6), (1, 7), (2, 2), (2, 5), (3, 11), (3, 10), (4, 1), (4, 9), (5, 1), (5, 8), (6, 6), (6, 5), (7, 2), (7, 8), (8, 3), (8, 10), (9, 3), (9, 5), (10, 2), (10, 11), (11, 1), (11, 7), (12, 11), (12, 9), (13, 3), (13, 10), (14, 1), (14, 8);
 
-INSERT INTO users(id, first_name, last_name, email, password, role) VALUES (1, 'Martin', 'Fowler', 'thymeleaf@test.com', 'thymeleaf', 'ROLE_USER');
+INSERT INTO users(id, first_name, last_name, email, password, role) VALUES (1, 'Martin', 'Fowler', 'thymeleaf@test.com', 'thymeleaf', 'ROLE_USER'), (2, 'Admin', 'Test', 'thymeleafAdmin@test.com', 'thymeleaf', 'ROLE_ADMIN');
